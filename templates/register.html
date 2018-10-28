@@ -99,6 +99,7 @@
 		  </tr>
 
 		</table>
+		<h3><p>You have been successfully registered. Login to proceed.</p></h3>
 		</div>
 		
 	{% else %}
@@ -110,7 +111,8 @@
 				</div>
 				<div class="auth__auth">
 					<h1 class="auth__title">Create your account</h1>
-					<p>Fill in the details</p>
+					<p>Fill in the details.</p>
+					<p style="color:red">*Token is only given to Fractal Club Members( To get one contact Fractal Mentors).</p>
 					<form method='post' action="{% url 'signup' %}" autocompelete="new-password" role="presentation" class="form">
 					{% csrf_token %}	
 						<!-- <input name="token" class="fakefield"> -->
@@ -118,10 +120,10 @@
 						<input type="text" name="token" id='token' placeholder="a31/bxw4$2ys@^(fGH)!`ha<hF?XZ">
 
 						<label>Password</label>
-						<input type="password" name="password1" id='password1' placeholder="password">
+						<input type="password" name="password1" id='password1' placeholder="Password">
 
 						<label>Confirm Password</label>
-						<input type="password" name="password2" id='password2' placeholder="Retype password">
+						<input type="password" name="password2" id='password2' placeholder="Retype Password">
 						<p style="color:red">{% if message %}
 							{{ message }}
 						{% endif %}	</p>

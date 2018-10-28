@@ -34,11 +34,11 @@
 				</div>
 				<div class="auth__auth">
 					<h1 class="auth__title">Access your account</h1>
-					<p>Fill in your email and password to proceed</p>
+					<p>Fill in your Roll No. and Password to proceed.</p>
 					<form method='post' action="{% url 'login' %}" autocompelete="new-password" role="presentation" class="form">
 						{% csrf_token %}	
 						<input name="email" class="fakefield">
-						<label>Roll No</label>
+						<label>Roll No.</label>
 						<input type="text" name="username" id='username' placeholder="170521000">
 						<label>Password</label>
 						<input type="password" name="password" id='password' placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" autocomplete="off">
