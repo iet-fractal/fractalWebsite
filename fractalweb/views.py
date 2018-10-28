@@ -131,7 +131,7 @@ def update_excel(request):
                     sessions=sheet.cell(rowx=i, colx=6).value
                     token = sheet.cell(rowx=i, colx=7).value
                     # print(rollno,fname,lname,branch,email,phone,sessions,token)
-                    rollno,fname,lname,branch,email,phone,sessions,token=str(int(rollno)),fname.strip(),lname.strip(),branch.strip(),email.strip(),phone.strip(),sessions.strip(),str(token).strip()
+                    rollno,fname,lname,branch,email,phone,sessions,token=str(int(rollno)),fname.strip(),lname.strip(),branch.strip(),email.strip(),str(int(phone)).strip(),sessions.strip(),str(token).strip()
                     # print(rollno,fname,lname,branch,email,phone,sessions,token,"\n\n\n\n\n\n")
                     obj=User(username=rollno,first_name=fname,last_name=lname,email=email,is_staff=False,is_active=False,is_superuser=False)
                     obj.save()
