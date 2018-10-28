@@ -121,7 +121,7 @@ def update_excel(request):
                     tmp.write(excel_file.read())
                 book = xlrd.open_workbook(path)
                 sheet = book.sheet_by_index(0)
-                for i in range(1,sheet.nrows-1):
+                for i in range(1,sheet.nrows):
                     rollno = sheet.cell(rowx=i, colx=0).value
                     fname = sheet.cell(rowx=i, colx=1).value
                     lname = sheet.cell(rowx=i, colx=2).value
@@ -133,10 +133,13 @@ def update_excel(request):
                     # print(rollno,fname,lname,branch,email,phone,sessions,token)
                     rollno,fname,lname,branch,email,phone,sessions,token=str(int(rollno)),fname.strip(),lname.strip(),branch.strip(),email.strip(),str(int(phone)).strip(),sessions.strip(),str(token).strip()
                     # print(rollno,fname,lname,branch,email,phone,sessions,token,"\n\n\n\n\n\n")
-                    obj=User(username=rollno,first_name=fname,last_name=lname,email=email,is_staff=False,is_active=False,is_superuser=False)
-                    obj.save()
-                    Exobj=ExtendedUser(user=obj,rollno=rollno,branch=branch,phone=phone,token=str(token),sessions=sessions)
-                    Exobj.save()
+                    try:
+                        obj=User(username=rollno,first_name=fname,last_name=lname,email=email,is_staff=False,is_active=False,is_superuser=False)
+                        obj.save()
+                        Exobj=ExtendedUser(user=obj,rollno=rollno,branch=branch,phone=phone,token=str(token),sessions=sessions)
+                        Exobj.save()
+                    except:
+                        pass
             finally:
                 os.remove(path)
         else:
