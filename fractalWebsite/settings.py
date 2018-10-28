@@ -25,7 +25,7 @@ SECRET_KEY = 'y_-zd9@g0huv@9ub_b-5175pww$dv*z*c0jho!1dc0_!h_$k*x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['128.199.183.113','fractal.ietlucknow.ac.in']
 
 
 # Application definition
@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'django_project.urls'
+ROOT_URLCONF = 'fractalWebsite.urls'
 
 TEMPLATES = [
     {
@@ -70,19 +70,29 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'django_project.wsgi.application'
+WSGI_APPLICATION = 'fractalWebsite.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
+'''
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'fractalwebdatabase',
+        'USER': 'fractal',
+        'PASSWORD': 'iet@fractal',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
