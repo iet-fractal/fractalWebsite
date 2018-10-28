@@ -134,7 +134,7 @@ def update_excel(request):
                     rollno,fname,lname,branch,email,phone,sessions,token=str(int(rollno)),fname.strip(),lname.strip(),branch.strip(),email.strip(),str(int(phone)).strip(),sessions.strip(),str(token).strip()
                     # print(rollno,fname,lname,branch,email,phone,sessions,token,"\n\n\n\n\n\n")
                     AlreadyExist=User.objects.filter(username=rollno)
-                    if AlreadyExist:
+                    if not AlreadyExist:
                         obj=User(username=rollno,first_name=fname,last_name=lname,email=email,is_staff=False,is_active=False,is_superuser=False)
                         obj.save()
                         Exobj=ExtendedUser(user=obj,rollno=rollno,branch=branch,phone=phone,token=str(token),sessions=sessions)
